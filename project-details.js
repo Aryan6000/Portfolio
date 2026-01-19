@@ -17,17 +17,17 @@ const projectsData = {
         projects: [
             {
                 name: "VIBE - Clothing Store",
-                path: "../https://aryan6000.github.io/Clothing-website/",
+                path: "../Clothing-website/index.html",
                 description: "Modern streetwear e-commerce platform with trendy UI and responsive design"
             },
             {
                 name: "LUXE - Premium Store",
-                path: "../Ecomerce-websites/Normal website/index.html",
+                path: "../Normal-Ecomerce-website/index.html",
                 description: "Multi-category premium shopping platform with advanced filtering and search"
             },
             {
                 name: "SneakPeak - Sneaker Hub",
-                path: "../Ecomerce-websites/Sneaker Website/index.html",
+                path: "../Sneaker Website/index.html",
                 description: "Specialized sneaker marketplace with exclusive collections and premium features"
             }
         ]
