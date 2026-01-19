@@ -1,3 +1,11 @@
+// Project card click handler
+document.querySelectorAll('.project-card').forEach(card => {
+    card.addEventListener('click', function() {
+        const projectId = this.getAttribute('data-project-id');
+        window.location.href = `project-details.html?id=${projectId}`;
+    });
+});
+
 // Contact card interactions
 document.querySelectorAll('.contact-card').forEach(card => {
     card.addEventListener('click', function() {
