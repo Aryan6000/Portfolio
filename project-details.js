@@ -17,7 +17,7 @@ const projectsData = {
         projects: [
             {
                 name: "VIBE - Clothing Store",
-                path: "../Ecomerce-websites/Clothing website/index.html",
+                path: "https://github.com/Aryan6000/Ecomerce-websites/blob/main/Clothing%20website/index.html",
                 description: "Modern streetwear e-commerce platform with trendy UI and responsive design"
             },
             {
