@@ -17,17 +17,17 @@ const projectsData = {
         projects: [
             {
                 name: "VIBE - Clothing Store",
-                path: "../Ecommerce website/Clothing website/index.html",
+                path: "../Ecomerce-websites/Clothing website/index.html",
                 description: "Modern streetwear e-commerce platform with trendy UI and responsive design"
             },
             {
                 name: "LUXE - Premium Store",
-                path: "../Ecommerce website/Normal website/index.html",
+                path: "../Ecomerce-websites/Normal website/index.html",
                 description: "Multi-category premium shopping platform with advanced filtering and search"
             },
             {
                 name: "SneakPeak - Sneaker Hub",
-                path: "../Ecommerce website/Sneaker Website/index.html",
+                path: "../Ecomerce-websites/Sneaker Website/index.html",
                 description: "Specialized sneaker marketplace with exclusive collections and premium features"
             }
         ]
