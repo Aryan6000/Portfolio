@@ -481,23 +481,15 @@
         }
 
         .contact-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
             gap: 2rem;
             margin-top: 3rem;
             max-width: 1200px;
             margin-left: auto;
             margin-right: auto;
-        }
-
-        .contact-cards .contact-card:nth-child(3) {
-            grid-column: 3;
-            justify-self: start;
-        }
-
-        .contact-cards .contact-card:nth-child(4) {
-            grid-column: 2;
-            justify-self: center;
+            justify-content: center;
+            align-items: stretch;
         }
 
         .contact-card {
@@ -510,6 +502,8 @@
             cursor: pointer;
             position: relative;
             overflow: hidden;
+            flex: 1 1 260px;
+            max-width: 320px;
         }
 
         .contact-card::before {
@@ -735,18 +729,7 @@
             }
             
             .contact-cards {
-                grid-template-columns: repeat(2, 1fr);
                 gap: 1.5rem;
-            }
-            
-            .contact-cards .contact-card:nth-child(3) {
-                grid-column: 2;
-                justify-self: start;
-            }
-            
-            .contact-cards .contact-card:nth-child(4) {
-                grid-column: 1;
-                justify-self: end;
             }
             
             .contact-card {
@@ -963,7 +946,6 @@
             }
             
             .contact-cards {
-                grid-template-columns: 1fr;
                 gap: 1rem;
             }
             
