@@ -282,6 +282,7 @@ body {
     padding: 3rem 2rem;
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
+    position: relative;
 }
 
 .stats-container {
@@ -294,6 +295,14 @@ body {
 
 .stat-item {
     text-align: center;
+    padding: 1rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+    background: var(--bg-primary);
+    transform: translateY(-3px);
 }
 
 .stat-number {
@@ -511,55 +520,100 @@ body {
 }
 
 .contact-cards {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
     margin-bottom: 4rem;
+    flex-wrap: wrap;
+    padding: 2rem 0;
 }
 
 .contact-card {
     background: var(--bg-secondary);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.5rem;
+    border: 2px solid var(--border);
+    border-radius: 50%;
+    width: 180px;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
+    position: relative;
+    box-shadow: var(--shadow-lg);
+    animation: float 6s ease-in-out infinite;
+}
+
+.contact-card:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.contact-card:nth-child(2) {
+    animation-delay: 1.5s;
+}
+
+.contact-card:nth-child(3) {
+    animation-delay: 3s;
+}
+
+.contact-card:nth-child(4) {
+    animation-delay: 4.5s;
 }
 
 .contact-card:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow);
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(99, 102, 241, 0.3);
     border-color: var(--primary);
+    animation-play-state: paused;
 }
 
 .contact-icon {
-    width: 48px;
-    height: 48px;
+    width: 56px;
+    height: 56px;
     background: var(--primary);
-    border-radius: 12px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 1rem;
+    margin-bottom: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.contact-card:hover .contact-icon {
+    transform: rotate(360deg) scale(1.1);
 }
 
 .contact-icon svg {
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
     fill: white;
 }
 
 .contact-card h3 {
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--text-primary);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
 }
 
 .contact-card p {
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     color: var(--text-secondary);
+    font-weight: 500;
+    padding: 0 0.5rem;
+    line-height: 1.3;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
 }
 
 /* Contact Form */
@@ -718,6 +772,46 @@ footer p {
     fill: white;
 }
 
+/* Floating Action Button (FAB) */
+.fab-button {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    background: var(--primary);
+    color: white;
+    padding: 0.875rem 1.5rem;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);
+    transition: all 0.3s ease;
+    z-index: 100;
+    animation: fabPulse 2s infinite;
+}
+
+.fab-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(99, 102, 241, 0.5);
+}
+
+.fab-button svg {
+    width: 20px;
+    height: 20px;
+}
+
+@keyframes fabPulse {
+    0%, 100% {
+        box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);
+    }
+    50% {
+        box-shadow: 0 4px 30px rgba(99, 102, 241, 0.6);
+    }
+}
+
 /* Dark Mode Toggle */
 .theme-toggle {
     position: fixed;
@@ -836,14 +930,77 @@ footer p {
     .skills-grid,
     .projects-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
     }
     
+    /* Skills cards on tablet */
+    .skill-card {
+        padding: 1.75rem;
+    }
+    
+    .skill-icon {
+        font-size: 2.75rem;
+    }
+    
+    .skill-card h3 {
+        font-size: 1.2rem;
+    }
+    
+    .skill-card p {
+        font-size: 0.95rem;
+    }
+    
+    /* Stats bar - keep horizontal on tablet */
     .stats-container {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+    }
+    
+    .stat-number {
+        font-size: 2.25rem;
+    }
+    
+    .stat-label {
+        font-size: 0.9rem;
     }
     
     .contact-cards {
-        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        padding: 1.5rem 0;
+    }
+    
+    .contact-card {
+        width: 140px;
+        height: 140px;
+    }
+    
+    .contact-icon {
+        width: 48px;
+        height: 48px;
+        margin-bottom: 0.5rem;
+    }
+    
+    .contact-icon svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .contact-card h3 {
+        font-size: 0.9rem;
+    }
+    
+    .contact-card p {
+        font-size: 0.7rem;
+        padding: 0 0.25rem;
+    }
+    
+    @keyframes float {
+        0%, 100% {
+            transform: translateY(0px);
+        }
+        50% {
+            transform: translateY(-15px);
+        }
     }
 }
 
@@ -1000,17 +1157,220 @@ footer p {
         padding: 0.75rem 1.5rem;
         font-size: 0.85rem;
         text-align: center;
+        min-height: 44px;
+        min-width: 120px;
+    }
+    
+    /* Better touch targets */
+    .nav-links a {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .contact-card {
+        min-height: 120px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .contact-card:active {
+        transform: scale(0.98);
+        background: var(--bg-tertiary);
+    }
+    
+    .project-card {
+        transition: all 0.3s ease;
+    }
+    
+    .project-card:active {
+        transform: scale(0.98);
     }
     
     .section-title {
         font-size: 2rem;
     }
     
+    /* Stats bar - horizontal scroll on mobile */
+    .stats-bar {
+        padding: 1.5rem 0;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+        scrollbar-color: var(--primary) var(--bg-tertiary);
+    }
+    
+    .stats-bar::-webkit-scrollbar {
+        height: 4px;
+    }
+    
+    .stats-bar::-webkit-scrollbar-track {
+        background: var(--bg-tertiary);
+        border-radius: 10px;
+    }
+    
+    .stats-bar::-webkit-scrollbar-thumb {
+        background: var(--primary);
+        border-radius: 10px;
+    }
+    
+    .stats-container {
+        display: flex;
+        gap: 1rem;
+        padding: 0 1.5rem;
+        min-width: min-content;
+    }
+    
+    .stat-item {
+        flex: 0 0 auto;
+        min-width: 110px;
+        text-align: center;
+        background: var(--bg-primary);
+        padding: 1rem 0.75rem;
+        border-radius: 10px;
+        border: 1px solid var(--border);
+    }
+    
+    .stat-number {
+        font-size: 1.75rem;
+        margin-bottom: 0.25rem;
+    }
+    
+    .stat-label {
+        font-size: 0.75rem;
+        line-height: 1.3;
+    }
+    
     .skills-grid,
     .projects-grid,
-    .stats-container,
     .contact-cards {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    /* Horizontal scrollable projects on mobile */
+    .projects-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 1rem;
+        padding: 0 1.5rem 1rem;
+        scrollbar-width: thin;
+        scrollbar-color: var(--primary) var(--bg-tertiary);
+    }
+    
+    .projects-grid::-webkit-scrollbar {
+        height: 4px;
+    }
+    
+    .projects-grid::-webkit-scrollbar-track {
+        background: var(--bg-tertiary);
+        border-radius: 10px;
+    }
+    
+    .projects-grid::-webkit-scrollbar-thumb {
+        background: var(--primary);
+        border-radius: 10px;
+    }
+    
+    .project-card {
+        flex: 0 0 85%;
+        scroll-snap-align: start;
+        max-width: 350px;
+    }
+    
+    .project-image {
+        height: 180px;
+    }
+    
+    /* Better testimonials on mobile */
+    .testimonial-slider {
+        padding: 0 1rem;
+    }
+    
+    .testimonial-item {
+        padding: 1.5rem;
+        background: var(--bg-primary);
+        border-radius: 16px;
+        border: 1px solid var(--border);
+        margin: 0 auto;
+        max-width: 90%;
+    }
+    
+    .testimonial-text {
+        font-size: 1.1rem;
+        line-height: 1.7;
+        margin-bottom: 1.5rem;
+        position: relative;
+    }
+    
+    .testimonial-text::before {
+        content: '"';
+        font-size: 4rem;
+        color: var(--primary);
+        opacity: 0.2;
+        position: absolute;
+        top: -20px;
+        left: -10px;
+        font-family: Georgia, serif;
+    }
+    
+    .testimonial-author {
+        font-size: 0.95rem;
+        color: var(--primary);
+        font-weight: 700;
+    }
+    
+    .testimonial-dots {
+        margin-top: 1.5rem;
+    }
+    
+    /* Skills section - more attractive on mobile */
+    .skill-card {
+        padding: 1.5rem;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .skill-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        background: var(--bg-secondary);
+        width: 80px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        border: 2px solid var(--border);
+    }
+    
+    .skill-card h3 {
+        font-size: 1.25rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .skill-card p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+    }
+    
+    .skill-tags {
+        justify-content: center;
+    }
+    
+    .skill-tag {
+        font-size: 0.75rem;
+        padding: 0.35rem 0.7rem;
     }
     
     .theme-toggle {
@@ -1021,6 +1381,33 @@ footer p {
     .scroll-to-top {
         bottom: 30px;
         right: 30px;
+    }
+    
+    .fab-button {
+        bottom: 90px;
+        right: 20px;
+        padding: 0.75rem 1.25rem;
+        font-size: 0.9rem;
+    }
+    
+    /* Hide FAB on very small screens to avoid clutter */
+    @media (max-width: 380px) {
+        .fab-button {
+            padding: 0.65rem 1rem;
+            font-size: 0.85rem;
+        }
+        
+        .fab-button span {
+            display: none;
+        }
+        
+        .fab-button {
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            padding: 0;
+            justify-content: center;
+        }
     }
 }
 
@@ -1052,6 +1439,92 @@ footer p {
         width: 100%;
         font-size: 0.8rem;
         padding: 0.65rem 1.25rem;
+    }
+    
+    /* Even smaller stat boxes */
+    .stats-bar {
+        padding: 1rem 0;
+    }
+    
+    .stats-container {
+        gap: 0.75rem;
+        padding: 0 1rem;
+    }
+    
+    .stat-item {
+        min-width: 95px;
+        padding: 0.875rem 0.5rem;
+        border-radius: 8px;
+    }
+    
+    .stat-number {
+        font-size: 1.5rem;
+        margin-bottom: 0.2rem;
+    }
+    
+    .stat-label {
+        font-size: 0.7rem;
+    }
+    
+    /* Compact skills cards */
+    .skill-card {
+        padding: 1.25rem;
+    }
+    
+    .skill-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 2.5rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .skill-card h3 {
+        font-size: 1.1rem;
+    }
+    
+    .skill-card p {
+        font-size: 0.9rem;
+    }
+    
+    /* Smaller contact bubbles */
+    .contact-cards {
+        gap: 1rem;
+        padding: 1rem 0;
+    }
+    
+    .contact-card {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .contact-icon {
+        width: 40px;
+        height: 40px;
+        margin-bottom: 0.4rem;
+    }
+    
+    .contact-icon svg {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .contact-card h3 {
+        font-size: 0.8rem;
+        margin-bottom: 0.15rem;
+    }
+    
+    .contact-card p {
+        font-size: 0.65rem;
+        padding: 0 0.15rem;
+    }
+    
+    @keyframes float {
+        0%, 100% {
+            transform: translateY(0px);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
     }
 }
 
