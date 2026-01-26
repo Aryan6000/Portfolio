@@ -2,316 +2,469 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Details - Aryan Dutta</title>
     <link rel="shortcut icon" href="faviconaryan.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <style>
-        .project-details-container {
+        .project-details-page {
+            padding-top: 80px;
             min-height: 100vh;
-            padding: 60px 20px 40px;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
-        }
-
-        .project-details-header {
-            max-width: 1200px;
-            margin: 0 auto 40px;
-            text-align: center;
+            background: var(--bg-primary);
         }
 
         .back-button {
-            display: inline-block;
-            margin-bottom: 20px;
-            padding: 10px 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            border: 1px solid var(--border);
             border-radius: 8px;
-            cursor: pointer;
-            font-size: 16px;
             text-decoration: none;
-            transition: transform 0.3s ease;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
         }
 
         .back-button:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
             transform: translateX(-5px);
         }
 
-        .project-hero {
+        .project-hero-section {
             max-width: 1200px;
-            margin: 40px auto;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3);
+            margin: 0 auto 4rem;
+            padding: 0 2rem;
         }
 
-        .project-hero img {
+        .project-hero-image {
             width: 100%;
-            height: 400px;
+            height: 500px;
             object-fit: cover;
-            display: block;
+            border-radius: 20px;
+            box-shadow: var(--shadow-xl);
+            margin-bottom: 3rem;
         }
 
-        .project-info {
+        .project-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .project-badge {
+            display: inline-block;
+            background: var(--bg-tertiary);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .project-title {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .project-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .project-content-wrapper {
             max-width: 1200px;
-            margin: 40px auto;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
             display: grid;
             grid-template-columns: 2fr 1fr;
-            gap: 40px;
+            gap: 3rem;
         }
 
-        .project-details-content h2 {
-            font-size: 2.5rem;
-            color: #ffffff;
-            margin-bottom: 20px;
+        .project-main-content {
+            background: var(--bg-primary);
         }
 
-        .project-details-content p {
-            color: #a0a0a0;
-            font-size: 18px;
+        .content-section {
+            margin-bottom: 3rem;
+        }
+
+        .content-section h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .content-section p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
             line-height: 1.8;
-            margin-bottom: 20px;
+            margin-bottom: 1rem;
         }
 
-        .project-tags {
+        .project-tags-section {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin: 30px 0;
+            gap: 0.75rem;
+            margin: 2rem 0;
         }
 
-        .project-tags .skill-tag {
-            display: inline-block;
-            padding: 8px 16px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-radius: 20px;
-            font-size: 14px;
+        .project-tag {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            font-weight: 600;
         }
 
         .project-sidebar {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 30px;
-            border-radius: 15px;
-            border: 1px solid rgba(102, 126, 234, 0.2);
+            position: sticky;
+            top: 100px;
             height: fit-content;
         }
 
-        .sidebar-section {
-            margin-bottom: 30px;
+        .sidebar-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
         }
 
-        .sidebar-section:last-child {
-            margin-bottom: 0;
-        }
-
-        .sidebar-section h3 {
-            color: #667eea;
-            font-size: 16px;
-            margin-bottom: 15px;
+        .sidebar-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
         }
 
-        .sidebar-section ul {
+        .sidebar-list {
             list-style: none;
             padding: 0;
             margin: 0;
         }
 
-        .sidebar-section ul li {
-            color: #a0a0a0;
-            padding: 8px 0;
-            border-bottom: 1px solid rgba(102, 126, 234, 0.1);
+        .sidebar-list li {
+            padding: 0.75rem 0;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--border);
+            font-size: 0.95rem;
         }
 
-        .sidebar-section ul li:last-child {
+        .sidebar-list li:last-child {
             border-bottom: none;
         }
 
-        .cta-button-project {
-            display: inline-block;
-            padding: 15px 30px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-            margin-top: 20px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .sidebar-list li strong {
+            color: var(--text-primary);
+            font-weight: 600;
         }
 
-        .cta-button-project:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        .ecommerce-projects-section {
+            margin-top: 3rem;
+            padding-top: 3rem;
+            border-top: 2px solid var(--border);
+        }
+
+        .ecommerce-projects-section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 2rem;
         }
 
         .ecommerce-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
         }
 
         .ecommerce-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(102, 126, 234, 0.2);
-            border-radius: 12px;
-            overflow: hidden;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
             transition: all 0.3s ease;
-            cursor: pointer;
         }
 
         .ecommerce-card:hover {
             transform: translateY(-5px);
-            border-color: rgba(102, 126, 234, 0.5);
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.2);
-        }
-
-        .ecommerce-card-content {
-            padding: 20px;
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
         }
 
         .ecommerce-card h4 {
-            color: #ffffff;
-            font-size: 18px;
-            margin-bottom: 10px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
         }
 
         .ecommerce-card p {
-            color: #a0a0a0;
-            font-size: 14px;
-            margin-bottom: 15px;
-            line-height: 1.5;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
         }
 
         .ecommerce-card-btn {
-            display: inline-block;
-            padding: 10px 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--primary);
             color: white;
             text-decoration: none;
-            border-radius: 6px;
-            font-size: 14px;
+            border-radius: 8px;
             font-weight: 600;
             transition: all 0.3s ease;
         }
 
         .ecommerce-card-btn:hover {
-            transform: translateX(3px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+            background: var(--primary-dark);
+            transform: translateX(5px);
         }
 
-        @media (max-width: 768px) {
-            .project-info {
+        .cta-section-project {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 3rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .cta-section-project h3 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .cta-section-project p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .cta-btn-large {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.125rem;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn-large:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        @media (max-width: 968px) {
+            .project-content-wrapper {
                 grid-template-columns: 1fr;
             }
 
-            .project-details-content h2 {
-                font-size: 1.8rem;
+            .project-sidebar {
+                position: static;
             }
 
-            .project-hero img {
-                height: 250px;
+            .project-hero-image {
+                height: 300px;
+            }
+
+            .project-title {
+                font-size: 2rem;
             }
         }
     </style>
 </head>
 <body>
     <nav class="navbar">
-        <div class="nav-brand">
-            <img src="DIJX9665.JPG" alt="Aryan Dutta" class="profile-pic">
-            <span class="brand-text">Aryan</span>
-        </div>
-        <ul class="nav-links">
-            <li><a href="index.html#home">Home</a></li>
-            <li><a href="index.html#skills">Skills</a></li>
-            <li><a href="index.html#projects">Projects</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
-            <li><a href="index.html#contact">Hire Me</a></li>
-        </ul>
-        <div class="nav-toggle">
-            <span></span>
-            <span></span>
-            <span></span>
+        <div class="nav-container">
+            <a href="index.html#home" class="nav-brand">
+                <img src="DIJX9665.JPG" alt="Aryan Dutta" class="profile-pic" />
+                <span>Aryan</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#skills">Skills</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="index.html#contact" class="cta-button">Hire Me</a></li>
+            </ul>
+            <div class="nav-toggle" onclick="toggleNav()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
 
-    <div class="project-details-container">
-        <div class="project-details-header">
-            <a href="index.html#projects" class="back-button">← Back to Projects</a>
+    <div class="project-details-page">
+        <div class="project-hero-section">
+            <a href="index.html#projects" class="back-button">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+                </svg>
+                Back to Projects
+            </a>
+
+            <img id="projectImage" src="" alt="Project" class="project-hero-image">
+
+            <div class="project-header">
+                <span class="project-badge" id="projectBadge">Featured Project</span>
+                <h1 class="project-title" id="projectTitle"></h1>
+                <p class="project-subtitle" id="projectDescription"></p>
+            </div>
         </div>
 
-        <div class="project-hero">
-            <img id="projectImage" src="" alt="Project Image">
-        </div>
-
-        <div class="project-info">
-            <div class="project-details-content">
-                <h2 id="projectTitle"></h2>
-                <p id="projectFullDescription"></p>
-                
-                <div class="project-tags" id="projectTags"></div>
-
-                <div id="projectDetails"></div>
-
-                <!-- Ecommerce Projects Section -->
-                <div id="ecommerceProjects" style="display: none;">
-                    <h3 style="color: #ffffff; margin-top: 40px; margin-bottom: 20px;">Live Projects</h3>
-                    <div class="ecommerce-grid">
-                        <!-- Will be populated by JavaScript -->
-                    </div>
+        <div class="project-content-wrapper">
+            <div class="project-main-content">
+                <div class="content-section">
+                    <h2>About This Project</h2>
+                    <p id="projectFullDescription"></p>
+                    <p id="projectDetails"></p>
                 </div>
 
-                <a href="index.html#contact" class="cta-button-project">Get Similar Project Done</a>
+                <div class="content-section">
+                    <h2>Technologies Used</h2>
+                    <div class="project-tags-section" id="projectTags"></div>
+                </div>
+
+                <div id="ecommerceProjects" class="ecommerce-projects-section" style="display: none;">
+                    <h2>Live E-Commerce Projects</h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+                        Explore my live e-commerce platforms showcasing different design approaches and features.
+                    </p>
+                    <div class="ecommerce-grid"></div>
+                </div>
+
+                <div class="cta-section-project">
+                    <h3>Interested in a Similar Project?</h3>
+                    <p>Let's discuss how I can help bring your vision to life with a custom solution.</p>
+                    <a href="index.html#contact" class="cta-btn-large">Start Your Project</a>
+                </div>
             </div>
 
-            <div class="project-sidebar">
-                <div class="sidebar-section">
+            <aside class="project-sidebar">
+                <div class="sidebar-card">
                     <h3>Project Info</h3>
-                    <ul id="projectInfo"></ul>
+                    <ul class="sidebar-list" id="projectInfo"></ul>
                 </div>
 
-                <div class="sidebar-section">
-                    <h3>Technologies</h3>
-                    <ul id="technologiesList"></ul>
+                <div class="sidebar-card">
+                    <h3>Tech Stack</h3>
+                    <ul class="sidebar-list" id="technologiesList"></ul>
                 </div>
 
-                <div class="sidebar-section">
-                    <h3>Results</h3>
-                    <ul id="resultsList"></ul>
+                <div class="sidebar-card">
+                    <h3>Key Results</h3>
+                    <ul class="sidebar-list" id="resultsList"></ul>
                 </div>
-            </div>
+            </aside>
         </div>
     </div>
 
     <footer>
-        <div class="social-links">
-            <a href="https://github.com/Aryan6000" class="social-link" title="GitHub">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                </svg>
-            </a>
-            <a href="https://www.linkedin.com/in/aryan-dutta-24828132a/" class="social-link" title="LinkedIn">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                </svg>
-            </a>
-            <a href="https://x.com/Aryandutta600" class="social-link" title="X (Twitter)">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                </svg>
-            </a>
-            <a href="https://www.instagram.com/itz.aryan6000/" class="social-link" title="Instagram">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                </svg>
-            </a>
+        <div class="footer-container">
+            <div class="social-links">
+                <a href="https://github.com/Aryan6000" class="social-link" title="GitHub" target="_blank" rel="noopener noreferrer">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/aryan-dutta-24828132a/" class="social-link" title="LinkedIn" target="_blank" rel="noopener noreferrer">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                </a>
+                <a href="https://x.com/Aryandutta600" class="social-link" title="X (Twitter)" target="_blank" rel="noopener noreferrer">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com/itz.aryan6000/" class="social-link" title="Instagram" target="_blank" rel="noopener noreferrer">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                </a>
+            </div>
+            <p>&copy; 2026 Aryan Dutta. All rights reserved.</p>
         </div>
-        <p style="color: #a0a0a0;">&copy; 2026 Aryan Dutta. Transforming Ideas Into Digital Reality.</p>
     </footer>
 
     <script src="project-details.js"></script>
-    <script src="script.js"></script>
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.createElement('button');
+        themeToggle.className = 'theme-toggle';
+        themeToggle.setAttribute('aria-label', 'Toggle theme');
+        themeToggle.innerHTML = `
+            <svg class="moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+            <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0 .39-.39.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36c.39-.39.39-1.03 0-1.41-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/>
+            </svg>
+        `;
+        document.body.appendChild(themeToggle);
+
+        // Load saved theme
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+
+        // Toggle theme
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+
+        function toggleNav() {
+            const navLinks = document.querySelector('.nav-links');
+            const navToggle = document.querySelector('.nav-toggle');
+            navLinks.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        }
+        
+        // Close menu when clicking on nav links
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                const navLinks = document.querySelector('.nav-links');
+                const navToggle = document.querySelector('.nav-toggle');
+                navLinks.classList.remove('active');
+                navToggle.classList.remove('active');
+            });
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const navContainer = document.querySelector('.nav-container');
+            const navLinks = document.querySelector('.nav-links');
+            const navToggle = document.querySelector('.nav-toggle');
+            
+            if (navLinks.classList.contains('active') && !navContainer.contains(e.target)) {
+                navLinks.classList.remove('active');
+                navToggle.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>
