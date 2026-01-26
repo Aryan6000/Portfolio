@@ -945,40 +945,61 @@ footer p {
         transform: none;
     }
     
-    /* Hero section for mobile */
+    /* Hero section - TEXT LEFT, IMAGE RIGHT */
     .hero {
         padding: 5rem 1.5rem 3rem;
+        min-height: auto;
     }
     
     .hero-container {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        text-align: center;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 1.5rem;
+        align-items: center;
     }
     
     .hero-content {
         order: 1;
+        text-align: left;
     }
     
     .hero-image {
         order: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     
     .hero-image img {
-        max-width: 200px;
+        width: 100%;
+        max-width: 180px;
+        height: auto;
     }
     
     .hero h1 {
-        font-size: 2.5rem;
+        font-size: 1.75rem;
+        line-height: 1.2;
     }
     
     .hero-tagline {
-        font-size: 1.1rem;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+    
+    .hero-badge {
+        font-size: 0.7rem;
+        padding: 0.4rem 0.8rem;
     }
     
     .hero-buttons {
-        justify-content: center;
-        flex-direction: row;
+        justify-content: flex-start;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .btn {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.85rem;
+        text-align: center;
     }
     
     .section-title {
@@ -1003,14 +1024,23 @@ footer p {
     }
 }
 
-/* Small mobile devices */
+/* Very small mobile devices */
 @media (max-width: 480px) {
+    .hero-container {
+        grid-template-columns: 1fr 0.6fr;
+        gap: 1rem;
+    }
+    
     .hero h1 {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
     
     .hero-tagline {
-        font-size: 1rem;
+        font-size: 0.85rem;
+    }
+    
+    .hero-image img {
+        max-width: 140px;
     }
     
     .hero-buttons {
@@ -1020,6 +1050,8 @@ footer p {
     
     .btn {
         width: 100%;
+        font-size: 0.8rem;
+        padding: 0.65rem 1.25rem;
     }
 }
 
