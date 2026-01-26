@@ -3,9 +3,20 @@ const App = () => {
     const [currentTestimonial, setCurrentTestimonial] = React.useState(0);
     const [showScrollTop, setShowScrollTop] = React.useState(false);
     const [showFAB, setShowFAB] = React.useState(false);
+    const [typedText, setTypedText] = React.useState('');
+    const [currentRoleIndex, setCurrentRoleIndex] = React.useState(0);
+    const [isDeleting, setIsDeleting] = React.useState(false);
     const [theme, setTheme] = React.useState(() => {
         return localStorage.getItem('theme') || 'light';
     });
+
+    const roles = [
+        'Frontend Developer',
+        'React Specialist',
+        'UI/UX Designer',
+        'Web Developer',
+        'Problem Solver'
+    ];
 
     const testimonials = [
         {
@@ -27,6 +38,38 @@ const App = () => {
         document.documentElement.setAttribute('data-theme', theme);
         localStorage.setItem('theme', theme);
     }, [theme]);
+    
+    // Typing animation effect
+    React.useEffect(() => {
+        const typingSpeed = 100;
+        const deletingSpeed = 50;
+        const pauseTime = 2000;
+        
+        const currentRole = roles[currentRoleIndex];
+        
+        const timer = setTimeout(() => {
+            if (!isDeleting) {
+                // Typing
+                if (typedText.length < currentRole.length) {
+                    setTypedText(currentRole.substring(0, typedText.length + 1));
+                } else {
+                    // Pause before deleting
+                    setTimeout(() => setIsDeleting(true), pauseTime);
+                }
+            } else {
+                // Deleting
+                if (typedText.length > 0) {
+                    setTypedText(currentRole.substring(0, typedText.length - 1));
+                } else {
+                    // Move to next role
+                    setIsDeleting(false);
+                    setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
+                }
+            }
+        }, isDeleting ? deletingSpeed : typingSpeed);
+        
+        return () => clearTimeout(timer);
+    }, [typedText, isDeleting, currentRoleIndex, roles]);
     
     React.useEffect(() => {
         // Close menu when clicking outside
@@ -227,8 +270,8 @@ const App = () => {
                         <li><a href="#home" onClick={(e) => handleSmoothScroll(e, '#home')}>Home</a></li>
                         <li><a href="#skills" onClick={(e) => handleSmoothScroll(e, '#skills')}>Skills</a></li>
                         <li><a href="#projects" onClick={(e) => handleSmoothScroll(e, '#projects')}>Projects</a></li>
-                        <li><a href="#contact" onClick={(e) => handleSmoothScroll(e, '#contact')}>Contact</a></li>
-                        <li><a href="#contact" className="cta-button" onClick={(e) => handleSmoothScroll(e, '#contact')}>Hire Me</a></li>
+                        <li><a href="#contact-info" onClick={(e) => handleSmoothScroll(e, '#contact-info')}>Contact</a></li>
+                        <li><a href="hire-me.html" className="cta-button">Hire Me</a></li>
                     </ul>
                     <button 
                         className={`nav-toggle ${isNavActive ? 'active' : ''}`}
@@ -252,9 +295,14 @@ const App = () => {
                     <div className="hero-content">
                         <span className="hero-badge">👋 Welcome to my portfolio</span>
                         <h1>Hi, I'm <span className="highlight">Aryan Dutta</span></h1>
-                        <p className="hero-tagline">Frontend Developer & React Specialist crafting beautiful, high-performance web applications that users love.</p>
+                        <p className="hero-tagline">
+                            <span className="typing-text">{typedText}</span>
+                            <span className="typing-cursor">|</span>
+                            <br />
+                            crafting beautiful, high-performance web applications that users love.
+                        </p>
                         <div className="hero-buttons">
-                            <a href="#contact" className="btn btn-primary" onClick={(e) => handleSmoothScroll(e, '#contact')}>Get In Touch</a>
+                            <a href="hire-me.html" className="btn btn-primary">Get In Touch</a>
                             <a href="#projects" className="btn btn-secondary" onClick={(e) => handleSmoothScroll(e, '#projects')}>View Projects</a>
                         </div>
                     </div>
@@ -435,27 +483,6 @@ const App = () => {
                 </div>
             </section>
 
-            <section id="contact" className="section">
-                <div className="section-container">
-                    <div className="cta-section">
-                        <h2>Ready To Start Your Project?</h2>
-                        <p>Let's discuss your ideas and create something amazing together. I'm here to help bring your vision to life.</p>
-                        <form className="contact-form" id="contactForm" onSubmit={handleFormSubmit}>
-                    <div className="form-group">
-                        <input type="text" name="name" placeholder="Your Name" required />
-                    </div>
-                    <div className="form-group">
-                        <input type="email" name="email" placeholder="Your Email" required />
-                    </div>
-                    <div className="form-group">
-                        <textarea name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
-                    </div>
-                        <button type="submit" className="submit-btn">Send Message</button>
-                    </form>
-                    </div>
-                </div>
-            </section>
-
             <footer>
                 <div className="footer-container">
                     <div className="social-links">
@@ -485,7 +512,7 @@ const App = () => {
             )}
             
             {showFAB && (
-                <a href="#contact" className="fab-button" onClick={(e) => handleSmoothScroll(e, '#contact')} aria-label="Hire Me">
+                <a href="hire-me.html" className="fab-button" aria-label="Hire Me">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                     </svg>
