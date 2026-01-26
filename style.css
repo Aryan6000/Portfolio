@@ -109,6 +109,10 @@ body {
     align-items: center;
 }
 
+.nav-links li {
+    display: block;
+}
+
 .nav-links a {
     text-decoration: none;
     color: var(--text-secondary);
@@ -820,6 +824,7 @@ footer p {
     }
     
     .nav-links {
+        display: flex;
         position: absolute;
         top: 100%;
         right: 0;
@@ -837,14 +842,18 @@ footer p {
         max-height: 0;
         overflow: hidden;
         opacity: 0;
+        visibility: hidden;
         transform: translateY(-10px);
-        transition: max-height 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+        transition: max-height 0.3s ease, opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+        pointer-events: none;
     }
     
     .nav-links.active {
         max-height: 400px;
         opacity: 1;
+        visibility: visible;
         transform: translateY(0);
+        pointer-events: auto;
     }
     
     .nav-links li {

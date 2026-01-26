@@ -194,14 +194,20 @@ const App = () => {
                         <li><a href="#contact" onClick={(e) => handleSmoothScroll(e, '#contact')}>Contact</a></li>
                         <li><a href="#contact" className="cta-button" onClick={(e) => handleSmoothScroll(e, '#contact')}>Hire Me</a></li>
                     </ul>
-                    <div 
+                    <button 
                         className={`nav-toggle ${isNavActive ? 'active' : ''}`}
-                        onClick={() => setIsNavActive(!isNavActive)}
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            console.log('Toggle clicked, current state:', isNavActive);
+                            setIsNavActive(!isNavActive);
+                        }}
+                        aria-label="Toggle navigation"
+                        aria-expanded={isNavActive}
                     >
                         <span></span>
                         <span></span>
                         <span></span>
-                    </div>
+                    </button>
                 </div>
             </nav>
 
