@@ -1,0 +1,83 @@
+[
+  {
+    "id": 1,
+    "title": "E-Commerce Platform",
+    "description": "Modern shopping experience with React. Increased conversion rates by 45%.",
+    "longDescription": "A comprehensive e-commerce solution featuring three distinct storefronts: VIBE (fashion), LUXE (luxury goods), and SneakPeak (sneakers). Built with React and modern web technologies, this platform delivers a seamless shopping experience with real-time inventory management, secure payment processing, and responsive design.",
+    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800",
+    "technologies": ["React", "Node.js", "MongoDB", "Stripe", "Redux"],
+    "category": "Web Application",
+    "featured": true,
+    "liveUrl": "https://example.com/ecommerce",
+    "githubUrl": "https://github.com/Aryan6000/ecommerce",
+    "completedDate": "2024-01-15",
+    "client": "Multiple Clients",
+    "features": [
+      "Multi-store architecture",
+      "Real-time inventory management",
+      "Secure payment integration",
+      "Admin dashboard",
+      "Mobile-responsive design",
+      "Product search and filtering"
+    ],
+    "results": {
+      "conversionRate": "+45%",
+      "pageLoadTime": "1.2s",
+      "mobileTraffic": "65%"
+    }
+  },
+  {
+    "id": 2,
+    "title": "Analytics Dashboard",
+    "description": "Real-time data visualization with interactive charts and insights.",
+    "longDescription": "A powerful analytics dashboard that provides real-time insights into business metrics. Features interactive charts, customizable widgets, and data export capabilities. Built to handle large datasets efficiently with optimized rendering and caching strategies.",
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800",
+    "technologies": ["React", "D3.js", "Chart.js", "WebSocket", "Express"],
+    "category": "Dashboard",
+    "featured": true,
+    "liveUrl": "https://example.com/dashboard",
+    "githubUrl": "https://github.com/Aryan6000/analytics-dashboard",
+    "completedDate": "2024-02-20",
+    "client": "TechStart Inc.",
+    "features": [
+      "Real-time data updates",
+      "Interactive charts and graphs",
+      "Customizable widgets",
+      "Data export (CSV, PDF)",
+      "User role management",
+      "Dark mode support"
+    ],
+    "results": {
+      "dataProcessing": "10k+ records/sec",
+      "userSatisfaction": "98%",
+      "timeToInsight": "-60%"
+    }
+  },
+  {
+    "id": 3,
+    "title": "Corporate Website",
+    "description": "Professional landing page that boosted client inquiries by 60%.",
+    "longDescription": "A modern corporate website designed to showcase services and drive conversions. Features smooth animations, SEO optimization, and a content management system for easy updates. The site achieved a 60% increase in client inquiries within the first month.",
+    "image": "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800",
+    "technologies": ["HTML5", "CSS3", "JavaScript", "GSAP", "Webpack"],
+    "category": "Website",
+    "featured": true,
+    "liveUrl": "https://example.com/corporate",
+    "githubUrl": "https://github.com/Aryan6000/corporate-site",
+    "completedDate": "2023-12-10",
+    "client": "StartupX",
+    "features": [
+      "Responsive design",
+      "SEO optimized",
+      "Smooth animations",
+      "Contact form integration",
+      "Blog section",
+      "Multi-language support"
+    ],
+    "results": {
+      "inquiries": "+60%",
+      "seoRanking": "Top 3",
+      "bounceRate": "-35%"
+    }
+  }
+]

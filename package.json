@@ -1,32 +1,13 @@
 {
-  "name": "portfolio",
+  "name": "aryan-portfolio",
   "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
+  "description": "Aryan Dutta's Portfolio - Frontend Developer & React Specialist",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "cd backend && npm run dev",
+    "start": "cd backend && npm start",
+    "install-backend": "cd backend && npm install"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Aryan6000/Portfolio.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Aryan6000/Portfolio/issues"
-  },
-  "homepage": "https://github.com/Aryan6000/Portfolio#readme",
-  "dependencies": {
-    "react": "^19.2.3",
-    "react-dom": "^19.2.3"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.28.6",
-    "@babel/preset-env": "^7.28.6",
-    "@babel/preset-react": "^7.28.5",
-    "babel-loader": "^10.0.0",
-    "webpack": "^5.104.1",
-    "webpack-cli": "^6.0.1"
-  }
+  "keywords": ["portfolio", "react", "frontend", "developer"],
+  "author": "Aryan Dutta",
+  "license": "MIT"
 }

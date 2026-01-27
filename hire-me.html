@@ -119,9 +119,11 @@
                         <textarea id="reference" name="reference" rows="3" placeholder="Share links to websites or designs you like (one per line)"></textarea>
                     </div>
                     <div class="form-group">
-                        <label>Attachments (Optional)</label>
+                        <label for="attachments">Attachments (Optional)</label>
+                        <input type="file" id="attachments" name="attachments" multiple accept=".jpg,.jpeg,.png,.gif,.pdf,.doc,.docx">
                         <div class="file-upload-note">
-                            <p>📎 Note: File attachments will be sent via email. Please attach any relevant documents, mockups, or design files when you receive the email prompt after submission.</p>
+                            <p>📎 You can attach up to 5 files (max 5MB each). Accepted formats: JPG, PNG, GIF, PDF, DOC, DOCX</p>
+                            <div id="fileList" class="file-list"></div>
                         </div>
                     </div>
                 </div>
